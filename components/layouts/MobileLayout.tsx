@@ -21,29 +21,39 @@ export default function MobileLayout() {
       
       {/* Main Content - with padding for fixed elements */}
       <main className="pt-16 pb-20">
-        <div id="home" className={activeSection === "home" ? "block" : "hidden"}>
-          <HeroMobile />
-          <MetricsMobile />
-        </div>
-        
-        <div id="about" className={activeSection === "about" ? "block" : "hidden"}>
-          <AboutMobile />
-        </div>
-        
-        <div id="projects" className={activeSection === "projects" ? "block" : "hidden"}>
-          <FeaturedProjectMobile />
-          <div className="mt-12">
-            <ProjectsMobileGitHub />
+        {activeSection === "home" && (
+          <div id="home">
+            <HeroMobile />
+            <MetricsMobile />
           </div>
-        </div>
+        )}
         
-        <div id="skills" className={activeSection === "skills" ? "block" : "hidden"}>
-          <SkillsMobile />
-        </div>
+        {activeSection === "about" && (
+          <div id="about">
+            <AboutMobile />
+          </div>
+        )}
         
-        <div id="contact" className={activeSection === "contact" ? "block" : "hidden"}>
-          <ContactMobile />
-        </div>
+        {activeSection === "projects" && (
+          <div id="projects">
+            <FeaturedProjectMobile />
+            <div className="mt-12">
+              <ProjectsMobileGitHub />
+            </div>
+          </div>
+        )}
+        
+        {activeSection === "skills" && (
+          <div id="skills">
+            <SkillsMobile />
+          </div>
+        )}
+        
+        {activeSection === "contact" && (
+          <div id="contact">
+            <ContactMobile />
+          </div>
+        )}
       </main>
       
       {/* Fixed Bottom Navigation */}

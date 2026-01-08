@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ExternalLink, Github, Sparkles, Zap, ShoppingCart, Calendar, Users, Shield } from "lucide-react";
+import { ExternalLink, Github, Zap, ShoppingCart, Calendar, Users, Shield } from "lucide-react";
 
 const features = [
   { icon: ShoppingCart, title: "Gestão de Vendas" },
@@ -17,22 +16,14 @@ const technologies = [
 export default function FeaturedProjectMobile() {
   return (
     <section className="py-12 px-4">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+      <div>
         {/* Header */}
         <div className="flex items-center gap-2 mb-6">
           <h2 className="text-3xl font-bold">Projeto em Destaque</h2>
         </div>
 
         {/* Main Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2 }}
-          className="relative bg-gradient-to-br from-slate-800/60 to-slate-900/60 border border-accent-500/30 rounded-2xl overflow-hidden p-6 space-y-6 shadow-xl shadow-accent-500/10"
+        <div className="relative bg-linear-to-br from-slate-800/60 to-slate-900/60 border border-accent-500/30 rounded-2xl overflow-hidden p-6 space-y-6 shadow-xl shadow-accent-500/10"
         >
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-500/20 border border-accent-500/30 rounded-full">
@@ -42,7 +33,7 @@ export default function FeaturedProjectMobile() {
 
           {/* Title */}
           <div>
-            <h3 className="text-3xl font-bold mb-2 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <h3 className="text-3xl font-bold mb-2 bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Gestsy
             </h3>
             <p className="text-lg text-accent-400 font-semibold mb-3">
@@ -55,7 +46,7 @@ export default function FeaturedProjectMobile() {
           </div>
 
           {/* Preview Mockup */}
-          <div className="relative w-full h-64 bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-700/50 rounded-xl overflow-hidden">
+          <div className="relative w-full h-64 bg-linear-to-br from-slate-900 to-slate-950 border border-slate-700/50 rounded-xl overflow-hidden">
             {/* Browser header */}
             <div className="bg-slate-800/60 border-b border-slate-700/50 px-3 py-2 flex items-center gap-1.5">
               <div className="flex gap-1">
@@ -128,32 +119,30 @@ export default function FeaturedProjectMobile() {
 
           {/* Actions */}
           <div className="space-y-3">
-            <motion.a
+            <a
               href="https://gestsy.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              whileTap={{ scale: 0.95 }}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-accent-500 to-accent-700 text-white font-bold rounded-xl shadow-lg shadow-accent-500/30"
+              className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-linear-to-r from-accent-500 to-accent-700 text-white font-bold rounded-xl shadow-lg shadow-accent-500/30 active:scale-95 transition-transform"
             >
               <ExternalLink size={18} />
               Acessar Gestsy
-            </motion.a>
-            <motion.a
-              href="https://github.com/guuilhermessantos" // Atualize com o repo específico
+            </a>
+            <a
+              href="https://github.com/guuilhermessantos"
               target="_blank"
               rel="noopener noreferrer"
-              whileTap={{ scale: 0.95 }}
-              className="w-full flex items-center justify-center gap-2 px-6 py-3 border-2 border-slate-700/50 text-white font-bold rounded-xl active:bg-slate-800/50"
+              className="w-full flex items-center justify-center gap-2 px-6 py-3 border-2 border-slate-700/50 text-white font-bold rounded-xl active:bg-slate-800/50 active:scale-95 transition-all"
             >
               <Github size={18} />
               Ver Código
-            </motion.a>
+            </a>
           </div>
 
           {/* Bottom highlight */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-500 via-purple-500 to-pink-500" />
-        </motion.div>
-      </motion.div>
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-accent-500 via-purple-500 to-pink-500" />
+        </div>
+      </div>
     </section>
   );
 }

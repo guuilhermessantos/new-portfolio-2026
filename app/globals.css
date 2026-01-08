@@ -148,4 +148,23 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* Performance optimizations for mobile */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Reduce motion for better performance */
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Optimize touch interactions */
+  button, a {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
 }
