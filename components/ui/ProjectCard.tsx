@@ -28,11 +28,11 @@ export default function ProjectCard({
     <motion.div
       whileHover={{ y: -8, scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group relative w-[400px] min-w-[400px] max-w-[400px] bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl overflow-hidden hover:border-accent-500/50 hover:shadow-2xl hover:shadow-accent-500/20 transition-all flex-shrink-0 backdrop-blur-sm"
+      className="group relative w-[400px] min-w-[400px] max-w-[400px] bg-linear-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 rounded-2xl overflow-hidden hover:border-accent-500/50 hover:shadow-2xl hover:shadow-accent-500/20 transition-all shrink-0 backdrop-blur-sm"
       style={{ marginRight: '3rem' }}
     >
       {/* Glow effect on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-accent-500/0 via-accent-500/0 to-accent-500/0 group-hover:from-accent-500/5 group-hover:via-transparent group-hover:to-accent-500/5 transition-all duration-500" />
+      <div className="absolute inset-0 bg-linear-to-br from-accent-500/0 via-accent-500/0 to-accent-500/0 group-hover:from-accent-500/5 group-hover:via-transparent group-hover:to-accent-500/5 transition-all duration-500" />
       
       {/* Sparkle indicator */}
       <div className="absolute top-4 right-4 z-10">
@@ -44,7 +44,7 @@ export default function ProjectCard({
       {/* Project Image/Icon */}
       <div className="relative overflow-hidden">
         <div
-          className={`h-48 bg-gradient-to-br ${gradient} flex items-center justify-center text-7xl relative`}
+          className={`h-48 bg-linear-to-br ${gradient} flex items-center justify-center text-7xl relative`}
         >
           <motion.div
             whileHover={{ scale: 1.1, rotate: 5 }}
@@ -62,7 +62,7 @@ export default function ProjectCard({
           <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/30 transition-colors" />
           
           {/* Animated gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-slate-900/70 via-transparent to-transparent" />
         </div>
       </div>
 
@@ -103,7 +103,7 @@ export default function ProjectCard({
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex-1 bg-gradient-to-r from-accent-500 to-accent-600 text-white font-medium py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-lg shadow-accent-500/25 hover:shadow-accent-500/40 transition-all"
+              className="flex-1 bg-linear-to-r from-accent-500 to-accent-600 text-white font-medium py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm shadow-lg shadow-accent-500/25 hover:shadow-accent-500/40 transition-all"
             >
               <ExternalLink size={16} />
               Ver Online
