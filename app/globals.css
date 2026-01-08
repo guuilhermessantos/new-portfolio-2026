@@ -155,16 +155,17 @@ body {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Reduce motion for better performance */
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
   /* Optimize touch interactions */
   button, a {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+  }
+
+  /* Prevent layout shift */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 }

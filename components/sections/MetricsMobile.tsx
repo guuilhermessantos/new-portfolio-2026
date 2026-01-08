@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useRef } from "react";
 import { Code, Award, Users, Rocket } from "lucide-react";
 
@@ -16,14 +15,9 @@ export default function MetricsMobile() {
 
   return (
     <div className="py-8 px-6">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-xl font-bold mb-6"
-      >
+      <h2 className="text-xl font-bold mb-6">
         Estatísticas Rápidas
-      </motion.h2>
+      </h2>
 
       {/* Horizontal Scrollable Cards */}
       <div
@@ -31,25 +25,21 @@ export default function MetricsMobile() {
         className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-6 px-6"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        {metrics.map((metric, index) => {
+        {metrics.map((metric) => {
           const Icon = metric.icon;
           return (
-            <motion.div
+            <div
               key={metric.label}
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
               className="min-w-[280px] snap-center"
             >
               <div className="bg-slate-800/50 backdrop-blur border border-slate-700/50 rounded-2xl p-6 h-full">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${metric.color} flex items-center justify-center mb-4 shadow-lg`}>
+                <div className={`w-12 h-12 rounded-xl bg-linear-to-br ${metric.color} flex items-center justify-center mb-4 shadow-lg`}>
                   <Icon size={24} className="text-white" />
                 </div>
                 <div className="text-3xl font-bold mb-2">{metric.value}</div>
                 <div className="text-gray-400 text-sm">{metric.label}</div>
               </div>
-            </motion.div>
+            </div>
           );
         })}
       </div>

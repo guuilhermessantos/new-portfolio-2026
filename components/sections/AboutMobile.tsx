@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Heart, Zap, Target, Code2 } from "lucide-react";
 
 const values = [
@@ -24,16 +23,12 @@ const values = [
 export default function AboutMobile() {
   return (
     <div className="min-h-screen px-6 py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+      <div>
         <h2 className="text-3xl font-bold mb-6">Sobre Mim</h2>
 
         <div className="space-y-6">
           {/* Image Placeholder */}
-          <div className="w-full h-64 bg-gradient-to-br from-accent-500/20 to-accent-700/20 rounded-2xl flex items-center justify-center border border-accent-500/30 shadow-xl shadow-accent-500/10">
+          <div className="w-full h-64 bg-linear-to-br from-accent-500/20 to-accent-700/20 rounded-2xl flex items-center justify-center border border-accent-500/30 shadow-xl shadow-accent-500/10">
             <Code2 size={80} className="text-accent-500" />
           </div>
 
@@ -56,29 +51,26 @@ export default function AboutMobile() {
           {/* Values */}
           <div className="space-y-4 pt-6">
             <h3 className="text-xl font-semibold mb-4">O Que Me Move</h3>
-            {values.map((value, index) => {
+            {values.map((value) => {
               const Icon = value.icon;
               return (
-                <motion.div
+                <div
                   key={value.title}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
                   className="flex items-start gap-4 p-4 bg-slate-800/40 border border-slate-700/50 rounded-xl"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-accent-500/20 flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-accent-500/20 flex items-center justify-center shrink-0">
                     <Icon size={20} className="text-accent-500" />
                   </div>
                   <div>
                     <h4 className="font-semibold mb-1">{value.title}</h4>
                     <p className="text-sm text-gray-400">{value.description}</p>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

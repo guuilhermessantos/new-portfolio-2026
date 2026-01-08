@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Mail, MapPin, Send, Github, Linkedin } from "lucide-react";
 
 const contactInfo = [
@@ -16,11 +15,7 @@ const socialLinks = [
 export default function ContactMobile() {
   return (
     <div className="min-h-screen px-6 py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
+      <div>
         <div className="mb-8">
           <h2 className="text-3xl font-bold mb-2">Entre em Contato</h2>
           <p className="text-gray-400">Vamos trabalhar juntos</p>
@@ -35,7 +30,7 @@ export default function ContactMobile() {
                 key={info.label}
                 className="flex items-center gap-4 p-4 bg-slate-800/40 border border-slate-700/50 rounded-xl"
               >
-                <div className="w-10 h-10 rounded-lg bg-accent-500/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-accent-500/20 flex items-center justify-center shrink-0">
                   <Icon size={18} className="text-accent-500" />
                 </div>
                 <div>
@@ -85,14 +80,13 @@ export default function ContactMobile() {
             />
           </div>
 
-          <motion.button
-            whileTap={{ scale: 0.95 }}
+          <button
             type="submit"
-            className="w-full bg-gradient-to-r from-accent-500 to-accent-600 text-white font-medium py-4 px-6 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-accent-500/25 active:shadow-accent-500/40 transition-shadow"
+            className="w-full bg-linear-to-r from-accent-500 to-accent-600 text-white font-medium py-4 px-6 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-accent-500/25 active:shadow-accent-500/40 active:scale-95 transition-all"
           >
             Enviar Mensagem
             <Send size={18} />
-          </motion.button>
+          </button>
         </form>
 
         {/* Social Links */}
@@ -114,7 +108,7 @@ export default function ContactMobile() {
             })}
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
