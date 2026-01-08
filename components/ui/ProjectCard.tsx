@@ -50,7 +50,14 @@ export default function ProjectCard({
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            {image}
+            {typeof image === 'string' ? (
+              image
+            ) : (
+              (() => {
+                const Icon = image;
+                return <Icon size={80} className="text-white" />;
+              })()
+            )}
           </motion.div>
           <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/30 transition-colors" />
           
