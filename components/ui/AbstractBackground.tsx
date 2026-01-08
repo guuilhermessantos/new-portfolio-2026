@@ -1,10 +1,50 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import WaveDivider from "./WaveDivider";
 
 export default function AbstractBackground() {
-  // Generate random positions for floating dots
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Detect mobile device
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Mobile version - Static, no animations
+  if (isMobile) {
+    return (
+      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        {/* Simple Gradient Base */}
+        <div className="absolute inset-0 bg-linear-to-br from-slate-950 via-slate-900 to-slate-950" />
+        
+        {/* Static decorative elements - no blur, no animation */}
+        <div className="absolute top-20 right-10 w-64 h-64 rounded-full bg-accent-500/5" />
+        <div className="absolute bottom-40 left-10 w-80 h-80 rounded-full bg-accent-600/5" />
+        
+        {/* Subtle grid overlay */}
+        <div 
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgb(148 163 184) 1px, transparent 1px),
+              linear-gradient(to bottom, rgb(148 163 184) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+          }}
+        />
+      </div>
+    );
+  }
+
+  // Desktop version - Full animations
   const dots = Array.from({ length: 50 }, (_, i) => ({
     id: i,
     size: Math.random() * 4 + 2,
@@ -18,7 +58,7 @@ export default function AbstractBackground() {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {/* Gradient Base */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+      <div className="absolute inset-0 bg-linear-to-br from-slate-950 via-slate-900 to-slate-950" />
       
       {/* Animated Dots Pattern */}
       {dots.map((dot) => (
