@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Download, Code2 } from "lucide-react";
+import { ArrowRight, Sparkles, Download } from "lucide-react";
+import Image from "next/image";
 
 export default function HeroDesktop() {
   return (
@@ -55,6 +56,14 @@ export default function HeroDesktop() {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/curriculo.pdf';
+                link.download = 'curriculo.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
               className="relative bg-black text-white font-medium py-3 px-8 rounded-xl flex items-center gap-2 overflow-hidden group"
               style={{
                 background: 'rgb(0, 0, 0)',
@@ -120,8 +129,13 @@ export default function HeroDesktop() {
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="absolute w-32 h-32 bg-gradient-to-br from-accent-500 to-accent-700 rounded-full blur-2xl opacity-50"
             />
-            <div className="absolute w-24 h-24 bg-gradient-to-br from-accent-400 to-accent-600 rounded-2xl flex items-center justify-center">
-              <Code2 size={48} className="text-white" />
+            <div className="absolute w-24 h-24 bg-gradient-to-br from-accent-400 to-accent-600 rounded-2xl flex items-center justify-center overflow-hidden relative">
+              <Image 
+                src="/avatar.svg" 
+                alt="Guilherme Santos" 
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </motion.div>

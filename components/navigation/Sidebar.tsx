@@ -1,6 +1,7 @@
 "use client";
 
-import { Code2, Home, User, Briefcase, Code, Mail, Github, Linkedin, ChevronLeft, ChevronRight } from "lucide-react";
+import { Home, User, Briefcase, Code, Mail, Github, Linkedin, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -98,10 +99,15 @@ export default function Sidebar() {
         <div className={`flex items-center transition-all ${
           isCollapsed ? 'justify-center' : 'gap-3'
         }`}>
-          <div className={`bg-gradient-to-br from-accent-500 to-accent-700 rounded-xl flex items-center justify-center shadow-lg shadow-accent-500/30 transition-all flex-shrink-0 ${
+          <div className={`bg-gradient-to-br from-accent-500 to-accent-700 rounded-xl flex items-center justify-center shadow-lg shadow-accent-500/30 transition-all flex-shrink-0 overflow-hidden relative ${
             isCollapsed ? 'w-12 h-12' : 'w-12 h-12'
           }`}>
-            <Code2 size={isCollapsed ? 24 : 24} className="text-white" />
+            <Image 
+              src="/avatar.svg" 
+              alt="Guilherme Santos" 
+              fill
+              className="object-cover"
+            />
           </div>
           <AnimatePresence>
             {!isCollapsed && (

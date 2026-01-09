@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Download } from "lucide-react";
 
 export default function HeroMobile() {
   return (
@@ -28,11 +28,61 @@ export default function HeroMobile() {
           Desenvolvedor full-stack especializado em criar aplicações web modernas, performáticas e centradas no usuário.
         </p>
 
-        {/* CTA Button */}
-        <button className="w-full bg-linear-to-r from-accent-500 to-accent-600 text-white font-medium py-4 px-6 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-accent-500/25 active:shadow-accent-500/40 active:scale-95 transition-all">
-          Ver Meu Trabalho
-          <ArrowRight size={18} />
-        </button>
+        {/* CTA Buttons */}
+        <div className="space-y-3">
+          <button className="w-full bg-linear-to-r from-accent-500 to-accent-600 text-white font-medium py-4 px-6 rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-accent-500/25 active:shadow-accent-500/40 active:scale-95 transition-all">
+            Ver Meu Trabalho
+            <ArrowRight size={18} />
+          </button>
+          
+          <button
+            onClick={() => {
+              const link = document.createElement('a');
+              link.href = '/curriculo.pdf';
+              link.download = 'curriculo.pdf';
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
+            className="relative bg-black text-white font-medium py-4 px-6 rounded-xl flex items-center justify-center gap-2 overflow-hidden group w-full"
+            style={{
+              background: 'rgb(0, 0, 0)',
+              border: '2px solid transparent',
+            }}
+          >
+            {/* Animated gradient border */}
+            <span 
+              className="absolute inset-0 rounded-xl opacity-100 group-hover:opacity-100 transition-opacity"
+              style={{
+                background: `
+                  conic-gradient(
+                    from var(--border-angle),
+                    transparent 25%,
+                    rgb(129, 140, 248),
+                    rgb(99, 102, 241),
+                    rgb(79, 70, 229),
+                    rgb(67, 56, 202),
+                    transparent 75%,
+                    transparent
+                  )
+                `,
+                padding: '2px',
+                borderRadius: 'inherit',
+                mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                maskComposite: 'exclude',
+                WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                WebkitMaskComposite: 'xor',
+                animation: 'border-rotate 4s linear infinite',
+              }}
+            />
+            
+            {/* Button content */}
+            <span className="relative z-10 flex items-center gap-2">
+              Baixar CV
+              <Download size={18} />
+            </span>
+          </button>
+        </div>
       </div>
 
       {/* Decorative Element - Simplified */}

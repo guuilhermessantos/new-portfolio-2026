@@ -1,6 +1,7 @@
 "use client";
 
-import { Heart, Zap, Target, Code2 } from "lucide-react";
+import { Heart, Zap, Target } from "lucide-react";
+import Image from "next/image";
 
 const values = [
   {
@@ -28,8 +29,13 @@ export default function AboutMobile() {
 
         <div className="space-y-6">
           {/* Image Placeholder */}
-          <div className="w-full h-64 bg-linear-to-br from-accent-500/20 to-accent-700/20 rounded-2xl flex items-center justify-center border border-accent-500/30 shadow-xl shadow-accent-500/10">
-            <Code2 size={80} className="text-accent-500" />
+          <div className="w-full h-64 bg-linear-to-br from-accent-500/20 to-accent-700/20 rounded-2xl flex items-center justify-center border border-accent-500/30 shadow-xl shadow-accent-500/10 overflow-hidden relative">
+            <Image 
+              src="/avatar.svg" 
+              alt="Guilherme Santos" 
+              fill
+              className="object-cover"
+            />
           </div>
 
           {/* Bio */}

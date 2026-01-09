@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Heart, Zap, Target, MapPin, Building2, Code2 } from "lucide-react";
+import { Heart, Zap, Target, MapPin, Building2 } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getGitHubUser, type GitHubUser } from "@/lib/github";
 
@@ -51,9 +52,14 @@ export default function AboutDesktopGitHub() {
         <div className="grid grid-cols-2 gap-12 items-start">
           {/* Left - Profile Info */}
           <div className="space-y-6">
-            <div className="relative w-full h-96 bg-gradient-to-br from-accent-500/20 to-accent-700/20 rounded-3xl flex items-center justify-center border border-white/10 relative overflow-hidden">
-              <Code2 size={120} className="text-accent-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            <div className="relative w-full h-96 bg-gradient-to-br from-accent-500/20 to-accent-700/20 rounded-3xl flex items-center justify-center border border-white/10 overflow-hidden">
+              <Image 
+                src="/avatar.svg" 
+                alt="Guilherme Santos" 
+                fill
+                className="object-cover z-10"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-20" />
             </div>
 
             {/* GitHub Stats */}

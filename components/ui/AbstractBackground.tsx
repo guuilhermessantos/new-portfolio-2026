@@ -6,6 +6,16 @@ import WaveDivider from "./WaveDivider";
 
 export default function AbstractBackground() {
   const [isMobile, setIsMobile] = useState(false);
+  const [dots, setDots] = useState<Array<{
+    id: number;
+    size: number;
+    x: number;
+    y: number;
+    duration: number;
+    delay: number;
+    opacity: number;
+    xOffset: number;
+  }>>([]);
 
   useEffect(() => {
     // Detect mobile device
@@ -15,6 +25,22 @@ export default function AbstractBackground() {
     
     checkMobile();
     window.addEventListener('resize', checkMobile);
+    
+    // Generate dots only on client side to avoid hydration mismatch
+    if (typeof window !== 'undefined') {
+      const generatedDots = Array.from({ length: 50 }, (_, i) => ({
+        id: i,
+        size: Math.random() * 4 + 2,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        duration: Math.random() * 20 + 15,
+        delay: Math.random() * 5,
+        opacity: Math.random() * 0.3 + 0.1,
+        xOffset: Math.random() * 20 - 10, // Pre-calculate to avoid Math.random() in animate
+      }));
+      setDots(generatedDots);
+    }
+    
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
@@ -44,37 +70,26 @@ export default function AbstractBackground() {
     );
   }
 
-  // Desktop version - Full animations
-  const dots = Array.from({ length: 50 }, (_, i) => ({
-    id: i,
-    size: Math.random() * 4 + 2,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    duration: Math.random() * 20 + 15,
-    delay: Math.random() * 5,
-    opacity: Math.random() * 0.3 + 0.1,
-  }));
-
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {/* Gradient Base */}
       <div className="absolute inset-0 bg-linear-to-br from-slate-950 via-slate-900 to-slate-950" />
       
-      {/* Animated Dots Pattern */}
-      {dots.map((dot) => (
+      {/* Animated Dots Pattern - Only render when dots are generated */}
+      {dots.length > 0 && dots.map((dot) => (
         <motion.div
           key={dot.id}
           className="absolute rounded-full bg-accent-500"
           style={{
-            width: dot.size,
-            height: dot.size,
+            width: `${dot.size}px`,
+            height: `${dot.size}px`,
             left: `${dot.x}%`,
             top: `${dot.y}%`,
             opacity: dot.opacity,
           }}
           animate={{
             y: [0, -30, 0],
-            x: [0, Math.random() * 20 - 10, 0],
+            x: [0, dot.xOffset, 0],
             scale: [1, 1.2, 1],
           }}
           transition={{

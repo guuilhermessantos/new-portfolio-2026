@@ -78,13 +78,6 @@ export default function ContactDesktop() {
               </div>
             </div>
 
-            {/* Decorative Quote */}
-            <div className="p-6 bg-gradient-to-br from-accent-500/10 to-accent-700/10 border border-accent-500/20 rounded-2xl">
-              <p className="text-lg italic text-gray-300">
-                "Grandes coisas são feitas por uma série de pequenas coisas reunidas."
-              </p>
-              <p className="text-sm text-accent-500 mt-2">— Vincent Van Gogh</p>
-            </div>
           </div>
 
           {/* Right - Contact Form */}
