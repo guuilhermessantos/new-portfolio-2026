@@ -14,16 +14,7 @@ export default function HeroDesktop() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-accent-500/10 border border-accent-500/20 rounded-full mb-6"
-          >
-            <Sparkles size={16} className="text-accent-500" />
-            <span className="text-sm text-accent-500 font-medium">Disponível para oportunidades</span>
-          </motion.div>
+
 
           {/* Main Title */}
           <h1 className="text-6xl font-bold mb-6 leading-tight">

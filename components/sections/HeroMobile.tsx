@@ -7,10 +7,7 @@ export default function HeroMobile() {
     <div className="min-h-[calc(100vh-8rem)] flex flex-col justify-center px-6 py-12 relative">
       <div>
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent-500/10 border border-accent-500/20 rounded-full mb-6">
-          <Sparkles size={14} className="text-accent-500" />
-          <span className="text-xs text-accent-500 font-medium">Disponível para oportunidades</span>
-        </div>
+       
 
         {/* Main Title */}
         <h1 className="text-4xl font-bold mb-4 leading-tight">
